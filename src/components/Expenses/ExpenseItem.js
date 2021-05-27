@@ -2,6 +2,7 @@ import './ExpenseItem.css';
 import ExpenseDate from "./ExpenseDate";
 import Card from "../UI/Card";
 import {useState} from "react";
+import ExpenseFilter from "./ExpenseFilter";
 
 function ExpenseItem(props) {
 
@@ -12,18 +13,19 @@ function ExpenseItem(props) {
     }
 
     return (
-        <Card className='expense-item'>
 
-            <ExpenseDate date={props.date}/>
+            <Card className='expense-item'>
 
-            <div className='expense-item__description'>
-                <h2>{title}</h2>
-                <div className='expense-item__price'>${props.amount}</div>
-            </div>
+                <ExpenseDate date={props.date}/>
 
-            <button onClick={(e) => changeTitleHandler}>Change title</button>
+                <div className='expense-item__description'>
+                    <h2>{title}</h2>
+                    <div className='expense-item__price'>${props.amount}</div>
+                </div>
 
-        </Card>
+                <button onClick={(e) => changeTitleHandler}>Change title</button>
+
+            </Card>
     );
 }
 

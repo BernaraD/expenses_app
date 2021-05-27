@@ -26,12 +26,17 @@ function App() {
             date: new Date(2021, 5, 12),
         },
     ]
+
+    const addExpenseHandler = (expense) => {
+        console.log('Hello from App.js')
+    }
     const [expenses, setExpense] = useState(initialValues);
 
     return (
         <div className="App">
             <h2>Expense Calculator</h2>
-            <NewExpense />
+
+            <NewExpense onAddExpense={addExpenseHandler}/>
             <Expenses items={expenses}/>
 
         </div>
