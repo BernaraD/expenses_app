@@ -1,8 +1,11 @@
-import Expenses from "./components/Expenses/Expenses";
+import {useState} from "react";
 import "./App.css"
+import Expenses from "./components/Expenses/Expenses";
+import NewExpense from "./components/NewExpense/NewExpense";
+
 function App() {
 
-    const expenses = [
+    const initialValues = [
         {
             id: 'e1',
             title: 'Home goods',
@@ -23,11 +26,13 @@ function App() {
             date: new Date(2021, 5, 12),
         },
     ]
-    return (
-        <div className="">
-            <h2>Let's get started!</h2>
+    const [expenses, setExpense] = useState(initialValues);
 
-                <Expenses items={expenses}/>
+    return (
+        <div className="App">
+            <h2>Expense Calculator</h2>
+            <NewExpense />
+            <Expenses items={expenses}/>
 
         </div>
     );
