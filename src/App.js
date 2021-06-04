@@ -27,10 +27,26 @@ function App() {
         },
     ]
 
-    const addExpenseHandler = (expense) => {
-        console.log('Hello from App.js')
-    }
+
     const [expenses, setExpense] = useState(initialValues);
+
+
+    const addExpenseHandler = (expense) => {
+        console.log(expense)
+        if (expense.title.length < 3 ) {
+           alert('Expense title should be longer then 3')
+        } else {
+            const updatedExpenses = {
+                id: Math.random(),
+                title: expense.title,
+                amount: expense.amount,
+                date: expense.date,
+            }
+            const newExpense = ([updatedExpenses, ...expenses])
+            setExpense(newExpense)
+        }
+    }
+
 
     return (
         <div className="App">
